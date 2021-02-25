@@ -1,8 +1,16 @@
 <launch>
-	<node pkg="tp_ros_uzmah" name="publisher" type="publisher.py">
+
+	<node pkg="button_gui" name="button_state" type="button_node.py">
+	</node>
+
+	<node pkg="tp_ros_uzmah" name="listen" type="publisher.py">
+	</node>
+
+	<node pkg="tp_ros_uzmah" name="chatter" type="publisher.py" output="screen">
 		<remap from="listen" to="chatter"/>
 	</node>
-	<node pkg="button_gui" name="button_state" type="button_node.py" output="screen">
-		<remap from="button_state" to="listen"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find tp_ros_uzmah)/config/Coordonnee_rviz.rviz" required="true">
 	</node>
+
 </launch>
