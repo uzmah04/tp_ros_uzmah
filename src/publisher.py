@@ -11,6 +11,7 @@ def callback(data):
 	rate = rospy.Rate(15) # 15hz
 
 	Coordonnee = PoseStamped()
+	Coordonnee.header.frame_id='map'
 
 	Coordonnee.pose.position.x = 0
 	Coordonnee.pose.position.y = 0
