@@ -1,0 +1,8 @@
+<launch>
+	<node pkg="tp_ros_uzmah" name="publisher" type="publisher.py">
+		<remap from="listen" to="chatter"/>
+	</node>
+	<node pkg="button_gui" name="button_state" type="button_node.py" output="screen">
+		<remap from="button_state" to="listen"/>
+	</node>
+</launch>
